@@ -1,6 +1,6 @@
 <?php
 namespace Page;
-use \Page\basePage as basePage;
+
 
 class signUpPage
 {
