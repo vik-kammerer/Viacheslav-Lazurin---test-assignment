@@ -4,8 +4,9 @@ namespace Page;
 class myAccount
 {
     // include url of current page
-    public static $URL = '';
-
+    public static $myAccURL = '/customer/account/';
+    public static $welcomeMessage = ['css' => '.message-success.success.message'];
+    
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
      * public static $usernameField = '#username';

@@ -1,13 +1,13 @@
 <?php
 
 use \Page\signUpPage as signUpPage;
-
+use \Page\myAccount as myAccount;
 
 
 class signUpCest
 
 {
-
+        public static $uniqueEmail;
         public function _before(\AcceptanceTester $I)
         {
         }
@@ -29,12 +29,17 @@ class signUpCest
             $I->fillField(signUpPage::$passConfirm, signUpPage::$testerPass);
             $I->scrollTo(signUpPage::$createUser);
             $I->click(signUpPage::$createUser);
-            
+            $I->seeElementInDOM(myAccount::$welcomeMessage);
 
         }
 
 
         
-
+        public function ReportIn (\AcceptanceTester $I)
+        {
+            echo "\r\n" . "New user has been created: " . self::$uniqueEmail . "\r\n";
+            
+            echo "The password is: " . signUpPage::$testerPass . "\r\n";
+        }
                 
 }
