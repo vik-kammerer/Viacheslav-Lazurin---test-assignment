@@ -15,28 +15,29 @@ class purchaseCest
     }
 
     // tests
-    public function AddProducts(AcceptanceTester $I)
+    public function SignUpAndBuy(AcceptanceTester $I)
     {
-        
+        $I->amGoingTo('Create a new user with unique email');
         signUpPage::CreateUser($I);
         
-        $I->wantTo('Purchase simple and configurable');
+        $I->amGoingTo('Add simple product into cart');
         $I->amOnPage(PDP::$simpleURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
         $I->fillField(PDP::$qtyBox, '10');
         $I->click(PDP::$addingButton);
-        $I->waitForText('10', 3, PDP::$counter);
+        $I->waitForText('10', 5, PDP::$counter);
 
         
+        $I->amGoingTo('Add configurable product into cart');
         $I->amOnPage(PDP::$configurableURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
         $I->fillField(PDP::$qtyBox, '10');
-        $I->click(PDP::$firstColor);
         $I->click(PDP::$firstSize);
+        $I->click(PDP::$firstColor);
         $I->click(PDP::$addingButton);
-        $I->waitForText('20', 3, PDP::$counter);
+        $I->waitForText('20', 5, PDP::$counter);
 
         
     }

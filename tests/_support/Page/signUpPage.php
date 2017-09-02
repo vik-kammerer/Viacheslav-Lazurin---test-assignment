@@ -9,7 +9,7 @@ class signUpPage
    public static $uniqueEmail;
 
     
-//    Locators
+//   // Locators
     public static $signUpURL = '/customer/account/create/';
     public static $firstName = ['css' => '#firstname'];
     public static $lastName = ['css' => '#lastname'];
@@ -18,11 +18,12 @@ class signUpPage
     public static $passConfirm = ['css' => '#password-confirmation'];
     public static $createUser = ['css' => '.action.submit.primary'];
     
-//    Test data
+//  //  Test data
     public static $testerPass = "1234567ABC_abc";
     public static $testerName = "testerName";
     public static $testerSurname = "testerLastName";
     
+    // This function is supposed to be called in purchaseCest
     public function CreateUser (\AcceptanceTester $I)
         {
             $I->wantTo('Create a user with unique email');
@@ -30,12 +31,18 @@ class signUpPage
             $I->wait('2'); //wait untill all JS scipts are loaded
             $I->fillField(signUpPage::$firstName, signUpPage::$testerName);
             $I->fillField(signUpPage::$lastName, signUpPage::$testerSurname);
-            $I->fillField(signUpPage::$email, self::$uniqueEmail = "check" . rand(1000, 9999) . "@testBot.com");
+            $I->fillField(signUpPage::$email, self::$uniqueEmail = "check" . rand(10, 99999) . "@testBot.com");
             $I->fillField(signUpPage::$password, signUpPage::$testerPass);
             $I->fillField(signUpPage::$passConfirm, signUpPage::$testerPass);
             $I->scrollTo(signUpPage::$createUser);
             $I->click(signUpPage::$createUser);
             $I->seeElementInDOM(myAccount::$welcomeMessage);
+            
+            function ReportIn (\AcceptanceTester $I)
+            {
+                echo "\r\n" . "New user has been created: " . self::$uniqueEmail . "\r\n";
+                echo "The password is: " . signUpPage::$testerPass . "\r\n";
+            }
 
         }
   
