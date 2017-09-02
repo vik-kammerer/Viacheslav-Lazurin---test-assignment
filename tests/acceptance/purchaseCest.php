@@ -20,7 +20,7 @@ class purchaseCest
         $I->amOnPage(PDP::$simpleURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
-        $I>fillField(PDP::$qtyBox, '10');
+        $I->fillField(PDP::$qtyBox, '10');
         $I->click(PDP::$addingButton);
         $I->waitForText('10', 3, PDP::$counter);
 
