@@ -5,7 +5,10 @@ class signUpPage
 {
     // include url of current page
 
-
+  public static function getRandomEmail()
+    {
+        return "check" . rand(1000, 9999) . "@testBot.com";
+    }
     
 //    Locators
     public static $signUpURL = '/customer/account/create/';
