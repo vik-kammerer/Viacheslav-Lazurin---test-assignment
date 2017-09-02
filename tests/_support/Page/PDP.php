@@ -7,7 +7,8 @@ class PDP
     
   
    
-   public static $simpleURL =  'aim-analog-watch';
+
+   public static $simpleURL =  'summit-watch';
    public static $configurableURL =  'gabrielle-micro-sleeve-top';
    public static $productTitle = ['css' => '.page-title-wrapper.product'];
    public static $qtyBox = ['css' => '#qty'];
