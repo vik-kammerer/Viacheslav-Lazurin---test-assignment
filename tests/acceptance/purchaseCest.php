@@ -5,7 +5,7 @@ use \Page\signUpPage as signUpPage;
 
 class purchaseCest
 {   
-   
+    
     public function _before(AcceptanceTester $I)
     {
     }
@@ -17,10 +17,10 @@ class purchaseCest
     // tests
     public function SignUpAndBuy(AcceptanceTester $I)
     {
-        $I->amGoingTo('Create a new user with unique email');
+        $I->amGoingTo('Create a new user and buy 2 products');
         signUpPage::CreateUser($I);
         
-        $I->amGoingTo('Add simple product into cart');
+        
         $I->amOnPage(PDP::$simpleURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
@@ -29,7 +29,7 @@ class purchaseCest
         $I->waitForText('10', 5, PDP::$counter);
 
         
-        $I->amGoingTo('Add configurable product into cart');
+        
         $I->amOnPage(PDP::$configurableURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
@@ -41,4 +41,6 @@ class purchaseCest
 
         
     }
+    
+
 }
