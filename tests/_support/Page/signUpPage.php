@@ -1,14 +1,13 @@
 <?php
 namespace Page;
+use \Page\basePage as basePage;
 
 class signUpPage
 {
     // include url of current page
 
-  public static function getRandomEmail()
-    {
-        return "check" . rand(1000, 9999) . "@testBot.com";
-    }
+   public static $uniqueEmail;
+
     
 //    Locators
     public static $signUpURL = '/customer/account/create/';
@@ -23,6 +22,22 @@ class signUpPage
     public static $testerPass = "1234567ABC_abc";
     public static $testerName = "testerName";
     public static $testerSurname = "testerLastName";
+    
+    public function CreateUser (\AcceptanceTester $I)
+        {
+            $I->wantTo('Create a user with unique email');
+            $I->amOnPage(signUpPage::$signUpURL);
+            $I->wait('2'); //wait untill all JS scipts are loaded
+            $I->fillField(signUpPage::$firstName, signUpPage::$testerName);
+            $I->fillField(signUpPage::$lastName, signUpPage::$testerSurname);
+            $I->fillField(signUpPage::$email, self::$uniqueEmail = "check" . rand(1000, 9999) . "@testBot.com");
+            $I->fillField(signUpPage::$password, signUpPage::$testerPass);
+            $I->fillField(signUpPage::$passConfirm, signUpPage::$testerPass);
+            $I->scrollTo(signUpPage::$createUser);
+            $I->click(signUpPage::$createUser);
+            $I->seeElementInDOM(myAccount::$welcomeMessage);
+
+        }
   
     
 

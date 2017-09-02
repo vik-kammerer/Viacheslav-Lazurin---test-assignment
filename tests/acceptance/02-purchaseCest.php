@@ -1,10 +1,11 @@
 <?php
 use \Page\PDP as PDP;
-
+use \Page\signUpPage as signUpPage;
 
 
 class purchaseCest
-{
+{   
+   
     public function _before(AcceptanceTester $I)
     {
     }
@@ -16,6 +17,9 @@ class purchaseCest
     // tests
     public function AddProducts(AcceptanceTester $I)
     {
+        
+        signUpPage::CreateUser($I);
+        
         $I->wantTo('Purchase simple and configurable');
         $I->amOnPage(PDP::$simpleURL);
         $I->seeElementInDOM(PDP::$productTitle);
