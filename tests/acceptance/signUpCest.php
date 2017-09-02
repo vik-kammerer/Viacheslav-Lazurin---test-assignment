@@ -22,11 +22,11 @@ class signUpCest
             $I->wantTo('Create a user with unique email');
             $I->amOnPage(signUpPage::$signUpURL);
             $I->wait('2'); //wait untill all JS scipts are loaded
-            $I->fill(signUpPage::$firstName, signUpPage::$testerName);
-            $I->fill(signUpPage::$lastName, signUpPage::$testerSurname);
-            $I->fill(signUpPage::$email, self::$uniqueEmail = signUpPage::getRandomEmail());
-            $I->fill(signUpPage::$password, signUpPage::$testerPas);
-            $I->fill(signUpPage::$passConfirm, signUpPage::$testerPass);
+            $I->fillField(signUpPage::$firstName, signUpPage::$testerName);
+            $I->fillField(signUpPage::$lastName, signUpPage::$testerSurname);
+            $I->fillField(signUpPage::$email, self::$uniqueEmail = signUpPage::getRandomEmail());
+            $I->fillField(signUpPage::$password, signUpPage::$testerPass);
+            $I->fillField(signUpPage::$passConfirm, signUpPage::$testerPass);
             $I->scrollTo(signUpPage::$createUser);
             $I->click(signUpPage::$createUser);
             
