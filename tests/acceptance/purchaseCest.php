@@ -16,13 +16,13 @@ class purchaseCest
     // tests
     public function purchaseSimple(AcceptanceTester $I)
     {
-        $I->wantTo('Add smple prodct into cart');
-        $I->amOnPage(PDP::$SimpleURL);
+        $I->wantTo('Add simple prodct into cart');
+        $I->amOnPage(PDP::$simpleURL);
         $I->seeElementInDOM(PDP::$productTitle);
         $I->seeElementInDOM(PDP::$priceBox);
         $I>fillField(PDP::$qtyBox, '10');
         $I->click(PDP::$addingButton);
-        $I->waitForText('10', PDP::$counter);
+        $I->waitForText('10', 3, PDP::$counter);
 
         
     }
