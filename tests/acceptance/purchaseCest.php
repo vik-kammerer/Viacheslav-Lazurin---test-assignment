@@ -1,4 +1,6 @@
 <?php
+use \Page\PDP as PDP;
+
 
 
 class purchaseCest
@@ -14,5 +16,6 @@ class purchaseCest
     // tests
     public function tryToTest(AcceptanceTester $I)
     {
+        
     }
 }

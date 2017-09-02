@@ -4,19 +4,31 @@ namespace Page;
 class PDP
 {
     // include url of current page
-    public static $URL = '';
+    
+  
+   
+   public static $simpleURL =  'aim-analog-watch';
+   public static $configurableURL =  'gabrielle-micro-sleeve-top';
+   public static $productTitle = ['css' => '.page-title-wrapper.product'];
+   public static $qtyBox = ['css' => '#qty'];
+   public static $addingButton = ['css' => '#product-addtocart-button'];
+   public static $priceBox = ['css' => '.price-box.price-final_price'];
+   public static $successMessage = ['css' => '.message-success.success.message'];
+   public static $addToCartForm = ['css' => '#product_addtocart_form'];
+   
+   //Configurable options
+   public static $firstColor = ['css' => '.swatch-option.color'];
+   public static $firstSize = ['css' => '.swatch-option.text'];
+   
+   //Shopping cart counter
+   public static $counter = ['css' => '.counter-number'];
+   
+   
+   
 
-    /**
-     * Declare UI map for this page here. CSS or XPath allowed.
-     * public static $usernameField = '#username';
-     * public static $formSubmitButton = "#mainForm input[type=submit]";
-     */
-
-    /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
-     */
+    
+    
+    
     public static function route($param)
     {
         return static::$URL.$param;
